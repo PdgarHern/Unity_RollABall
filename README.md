@@ -33,8 +33,10 @@ Now the first button will say 'Continue'. Press it to go to the next level.
 
 ### Game Levels
 The *first level* is just the 'Roll-a-ball' example. Not much to say here.<br/>
+<br/>
 In the *second level* the jump becomes important, there're cubes relatively hidden that force you to move the cam
 before you move and you have a bigger risk of falling off the map in this a bit larger level.<br/>
+<br/>
 The *third and last level* is the biggest one and has some of the greatest obstacles, though there're not the hardest ones.
 The difficulty here comes with the new implemented *enemies*. All across the map, you can find *red balls* "patrolling" or
 moving in a certain area. You must avoid touching them, as this will immediately fails you. However, you'll have to fight your
