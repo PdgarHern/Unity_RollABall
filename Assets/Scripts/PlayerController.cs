@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
   private float movementY;
   private float floorDist;
 
+  private bool dead;
+
   // Start is called before the first frame update
   void Start() {
     rb = GetComponent<Rigidbody>();
@@ -44,10 +46,20 @@ public class PlayerController : MonoBehaviour
   }
 
   void OnMove(InputValue movementValue) {
-    Vector2 movementVector = movementValue.Get<Vector2>();
+    if (!dead) {
+      Vector2 movementVector = movementValue.Get<Vector2>();
 
-    movementX = movementVector.x;
-    movementY = movementVector.y;
+      movementX = movementVector.x;
+      movementY = movementVector.y;
+
+    } else {
+      Vector2 movementVector = movementValue.Get<Vector2>();
+
+      movementX = 0;
+      movementY = 0;
+
+    }
+    
 
   }
 
@@ -73,7 +85,7 @@ public class PlayerController : MonoBehaviour
   }
 
   void Update() {
-    if (IsGrounded() && Input.GetKeyDown(KeyCode.Space)) {
+    if (IsGrounded() && Input.GetKeyDown(KeyCode.Space) && !dead) {
       // && GameObject.Find("Player").transform.position.y == 0.5
       rb.AddForce(Vector3.up * jumpAmount, ForceMode.Impulse);
 
@@ -100,11 +112,7 @@ public class PlayerController : MonoBehaviour
   void FixedUpdate() {
     Vector3 movement = new Vector3(movementX, 0.0f, movementY);
 
-    movement = movement;
-
     rb.AddForce(movement * speed);
-
-    
 
   }
 
@@ -119,6 +127,7 @@ public class PlayerController : MonoBehaviour
 
     if (other.gameObject.CompareTag("Enemy")) {
       //GameObject.Find("Player").SetActive(false);
+      dead = true;
 
       countTextObject.SetActive(false);
       countdownObject.SetActive(false);
