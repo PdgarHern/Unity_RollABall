@@ -3,6 +3,8 @@ This project has been develop following the *Roll-a-ball* tutorial, working on i
 <br/>
 It's a *platform game* with 3 levels. You take control of a blue ball and have to avoid a series of obstacles
 in order to pick *12 golden cubes* in each level.<br/>
+<br/>
+To play the game, download the project, go to the *Builds* directory and execute the *Rollaball.exe*.
 
 ### Game Menus
 The game has a *main menu* with 3 options.<br/>
